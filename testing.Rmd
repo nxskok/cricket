@@ -1,0 +1,37 @@
+---
+title: "testing"
+author: "Ken Butler"
+date: "August 5, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# R
+
+```{r}
+library(ggplot2)
+x=c(1,2,3,6,9,14)
+summary(x)
+ggplot(data.frame(x),aes(x=1,y=x))+geom_boxplot()
+```
+
+# SAS
+
+```{r,engine="sas"}
+data z;
+  input x @@;
+  cards;
+  1 2 3 6 9 14 
+;
+
+proc print;
+
+proc means;
+
+proc sgplot;
+  vbox x;
+```
+
