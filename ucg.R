@@ -243,12 +243,12 @@ left_join(all,env2$lookupTable) %>% filter(is.na(F)) %>% filter(ww==min(ww)) %>%
   filter(rr==min(rr)) %>% filter(bb==min(bb))
 str(env2$lookupTable)
 
-for (w in 1:10) {
+for (w in 8:10) {
   for (r in 400:444) {
     for (b in 1:300) {
       bigF(r,b,w)
-      print(paste("Done",r,b,w,"at",Sys.time()))
     }
+    print(paste("Done",r,w,"at",Sys.time()))
   }
   
 }
