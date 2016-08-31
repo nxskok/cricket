@@ -15,7 +15,9 @@ url="http://www.espncricinfo.com/ci/engine/match/947505.html" # doesn't work: 1s
 url="http://www.espncricinfo.com/ci/engine/match/947503.html" # warks essex
 url="http://www.espncricinfo.com/ci/engine/match/947501.html" # 1st team worcs all out: same error again. Is it 1st not complete but 2nd some?
 url="http://www.espncricinfo.com/england-v-pakistan-2016/engine/match/913657.html" # eng pak 3rd odi
+url="http://www.espncricinfo.com/sri-lanka-v-australia-2016/engine/match/995463.html" # sl aus 4th odi
 
+detach("package:MASS",unload=T)
 ans=makeGraph(url)
 ans$g
 ans$match %>% filter(runs>0 | wickets<10)
@@ -27,7 +29,7 @@ makeGraph=function(url) {
   teams=read.table("teams.txt",header=T,sep="\t")
   team=as.character(teams$teams)
   match=read.csv("match.csv",header=T,skip=2)
-  match %>% select(c(Over,Score,Score.1)) %>% gather(which,score,-Over) %>% 
+  match %>% dplyr::select(c(Over,Score,Score.1)) %>% gather(which,score,-Over) %>% 
     separate(score,into=c("runs","wickets"),sep="/") -> match.all
   match.all %>% filter(which=="Score") -> match.1
     match.all %>% filter(which=="Score.1") -> match.2
