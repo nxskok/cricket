@@ -13,12 +13,11 @@ url="http://www.espncricinfo.com/ci/engine/match/947511.html"
 url="http://www.espncricinfo.com/ci/engine/match/947509.html"
 url="http://www.espncricinfo.com/ci/engine/match/947505.html" # doesn't work: 1st innings didn't last 50 overs?
 url="http://www.espncricinfo.com/ci/engine/match/947503.html" # warks essex
-url="http://www.espncricinfo.com/ci/engine/match/947501.html" # 1st team worcs all out: same error again. Is it 1st not complete but 2nd some?
+url="http://www.espncricinfo.com/ci/engine/match/947501.html" # 1st team worcs all out: same error again. Is it 1st not complete but 2nd some? Other fix doesn't get it
 url="http://www.espncricinfo.com/england-v-pakistan-2016/engine/match/913657.html" # eng pak 3rd odi
 url="http://www.espncricinfo.com/sri-lanka-v-australia-2016/engine/match/995463.html" # sl aus 4th odi
 url="http://www.espncricinfo.com/england-v-pakistan-2016/engine/match/913659.html" # eng pak 4th odi
 
-detach("package:MASS",unload=T)
 ans=makeGraph(url)
 ans$g
 ans$match %>% filter(runs>0 | wickets<10)
