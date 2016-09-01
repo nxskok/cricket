@@ -243,7 +243,7 @@ left_join(all,env2$lookupTable) %>% filter(is.na(F)) %>% filter(ww==min(ww)) %>%
   filter(rr==min(rr)) %>% filter(bb==min(bb))
 str(env2$lookupTable)
 
-for (w in 9:10) {
+for (w in 10:10) {
   for (r in 400:444) {
     for (b in 1:300) {
       bigF(r,b,w)
