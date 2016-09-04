@@ -17,10 +17,13 @@ url="http://www.espncricinfo.com/ci/engine/match/947501.html" # 1st team worcs a
 url="http://www.espncricinfo.com/england-v-pakistan-2016/engine/match/913657.html" # eng pak 3rd odi
 url="http://www.espncricinfo.com/sri-lanka-v-australia-2016/engine/match/995463.html" # sl aus 4th odi
 url="http://www.espncricinfo.com/england-v-pakistan-2016/engine/match/913659.html" # eng pak 4th odi
+url="http://www.espncricinfo.com/sri-lanka-v-australia-2016/engine/match/995465.html" # aus sl 5th odi incomp 1st
+url="http://www.espncricinfo.com/england-v-pakistan-2016/engine/match/913661.html" # eng pak 5th odi
 
 ans=makeGraph(url)
 ans$g
 ans$match %>% filter(runs>0 | wickets<10)
+
 
 makeGraph=function(url) {
   urlvc=paste0(url,"?view=comparison")
