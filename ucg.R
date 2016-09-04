@@ -328,7 +328,7 @@ prob.greater=function(F1,F2) {
 
 
 first.wins=function(runs.now,balls.now,wickets.now) {
-  if (balls.now>=300) {
+  if (balls.now>=300 | wickets.now==10) {
     first.cdf=data.frame(rr=(runs.now-1):runs.now,F=0:1)
   } else 
   {
