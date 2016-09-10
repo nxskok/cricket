@@ -8,7 +8,8 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyr)
 library(dplyr)
 library(ggplot2)
-library(MASS)
+#library(MASS)
+detach("package:MASS",unload=T)
 library(yorkr)
 
 ## ------------------------------------------------------------------------
@@ -373,18 +374,34 @@ sapply(240:250,second.wins,150,40*6,3)
 second.wins(211,74,21*6,2) # 0.9085
 second.wins(211,99,36*6,2) # 0.9067
 # reduce target by 25 to 212-25=187 (higher d/l)
+# or, they resume at 99-2 after 36 overs
 
 # sa 236(50); eng 63-0 (12); 9 overs lost
 second.wins(235,63,12*6,0) # 0.9850
 second.wins(235,31,21*6,0) # 0.9846 odd:32 *more* runs needed
+# so England resume at 31-0 after 21 overs!
 
 # sl 127-1 (18.1), 8 overs lost
 first.wins(127,18*6+1,1) # 0.8603
 first.wins(155,(18+8)*6+1,1) # 0.8618
 # sl should gain 28 runs to bring them to 50 overs (305+28=333)
+# sl resume at 155-1 after 26.1 overs
 second.wins(333,0,0,0) # 0.3120
 second.wins(333,-3,6*8,0) # 0.3120 target 336????
 
+# recent d-l examples?
+# scotland hongkong
+# no play, 20 over match possible (30overs/side lost)
+# think of Scotland resuming after 30 overs with 0 wickets down, 50% chance of winning
+first.wins(76,30*6,0) # 0.5001, 76-0
+# scotland actually scored 153-6 in last 20 overs, total 229-6
+second.wins(229,0,0,0) # 0.6759 is chance of HK winning at this point
+# preserve this chance with 0 wkts down after 30 overs
+second.wins(229,22,30*6,0) # 0.6771, HK start at 22-0, with a lot fewer free runs than Scotland had
+# thus they need 208 runs in 20 overs!
+# problem is the 0.5 to start, I think
+# treat as 20 over match on ODI tables
+second.wins(153,136,48*6,4) # 0.6672 with 2 overs left, so HK should have been declared winners
 
 
 # auswi.1 and asuwi.2 from elsewhere
